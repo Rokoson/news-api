@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container page_form form">
+    <form id= "search-form" action="/results" method = "post">
+        <div class="form-group">
+            <label for="search">Query</label>
+            <input type="text" id="query" class="form-control", name="query">
+        </div>
+        <button type="submit" class="btn btn-success">Search</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="page-header">
+            <h2>News Items for query: {{ query }}</h2>
+        </div>
+        <div class="list-group">
+            {% if items | length > 0  %}
+                {% for item in items %}
+                    <a href="/item/{{ item._id }}">
+                        <h4 class="list-group-item-heading">
+                            {{ item.title }}
+                        </h4>
+                    </a>
+                    <strong>Date: {{ item.pub_date }}</strong>
+                    <p class="list-group-item-text">
+                        {{ item.description }}<br>
+                        <small>source: {{ item.source }}</small>
+                        <br>
+                        <small>word count: {{ item.word_count }}</small>
+                    </p>
+                    <br>
+                {% endfor %}
+            {% else %}
+                <h4>No items matched the query {{ query }}</h4>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
